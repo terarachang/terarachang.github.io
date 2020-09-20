@@ -12,5 +12,5 @@ venue: 'The 10th International Workshop on Health Text Mining and Information An
 
 Shang-Chi Tsai, **Ting-Yun Chang**, and Yun-Nung Chen
 
-[Full Paper](https://www.aclweb.org/anthology/D19-6206/)
+[Paper](https://www.aclweb.org/anthology/D19-6206/)
 
