@@ -19,4 +19,4 @@ codeurl: 'https://github.com/MiuLab/xSense'
 
 [Dataset](https://miulab.myDS.me:5001/sharing/lWPBRc8hG)
 
-![Fig](https://terarachang.github.io/files/xSense.pdf)
+![Fig](https://terarachang.github.io/files/xSense.png)
