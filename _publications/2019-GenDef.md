@@ -13,9 +13,9 @@ codeurl: 'https://github.com/MiuLab/GenDef'
 
 **Ting-Yun Chang**, and Yun-Nung Chen.
 
-Full Paper: 'https://www.csie.ntu.edu.tw/~yvchen/doc/EMNLP19_GenDef.pdf'
+[Full Paper](https://www.csie.ntu.edu.tw/~yvchen/doc/EMNLP19_GenDef.pdf)
 
-Code: 'https://github.com/MiuLab/GenDef'
+[Code](https://github.com/MiuLab/GenDef)
 
-Demo: 'http://140.112.29.239:5000/'
+[Demo](http://140.112.29.239:5000/)
 

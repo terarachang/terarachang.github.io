@@ -13,9 +13,9 @@ codeurl: 'https://github.com/MiuLab/xSense'
 
 **Ting-Yun Chang**, *Ta-Chung Chi, *Shang-Chi Tsai, Yun-Nung Chen
 
-Full Paper: 'https://arxiv.org/pdf/1809.03348.pdf'
+[Full Paper](https://arxiv.org/pdf/1809.03348.pdf)
 
-Code: 'https://github.com/MiuLab/xSense'
+[Code](https://github.com/MiuLab/xSense)
 
-Dataset: 'https://miulab.myDS.me:5001/sharing/lWPBRc8hG'
+[Dataset](https://miulab.myDS.me:5001/sharing/lWPBRc8hG)
 
