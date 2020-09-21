@@ -14,7 +14,7 @@ I received my master's degree from the Department of Computer Science and Inform
 
 Here is my [CV](https://terarachang.github.io/files/CV.pdf).
 
-#
+# 
 <p align="center">
     <img src="https://terarachang.github.io/images/table_tennis.jpg" alt>
     <em>National Tsing Hua University Women's Varsity Ping Pong Team</em>
