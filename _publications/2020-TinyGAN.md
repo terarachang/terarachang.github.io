@@ -14,7 +14,8 @@ venue: 'The 15th Asian Conference on Computer Vision (ACCV)'
 
 fast training, $16\times$ compression
 
+---
 ![Fig](https://terarachang.github.io/files/TinyGAN_flow.png)
-
+---
 ![Fig](https://terarachang.github.io/files/TinyGAN_demo.png)
 
