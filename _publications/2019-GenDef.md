@@ -13,6 +13,8 @@ codeurl: 'https://github.com/MiuLab/GenDef'
 
 **Ting-Yun Chang** and Yun-Nung Chen
 
-[Paper](https://www.csie.ntu.edu.tw/~yvchen/doc/EMNLP19_GenDef.pdf)&nbsp;&nbsp;[Code](https://github.com/MiuLab/GenDef)&nbsp;&nbsp;[Demo](http://140.112.29.239:5000/)
+[Paper](https://www.csie.ntu.edu.tw/~yvchen/doc/EMNLP19_GenDef.pdf)&nbsp;&nbsp;[Thesis](https://www.airitilibrary.com/Publication/alDetailedMesh1?DocID=U0001-1902202000330000)&nbsp;&nbsp;[Code](https://github.com/MiuLab/GenDef)&nbsp;&nbsp;[Demo](http://140.112.30.42:5000/)
+
+*embeddings -> textual definitions, probing contextualized representations*
 
 ![Fig](https://terarachang.github.io/files/GenDef.png)
