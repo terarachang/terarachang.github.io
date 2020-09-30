@@ -12,7 +12,9 @@ venue: 'The 15th Asian Conference on Computer Vision (ACCV)'
 
 **Ting-Yun Chang** and Chi-Jen Lu
 
-fast training, $16\times$ compression
+[Paper](https://arxiv.org/abs/2009.13829)&nbsp;&nbsp;[Code](https://github.com/terarachang/ACCV_TinyGAN)
+
+*fast training, $16\times$ compression*
 
 ---
 ![Fig](https://terarachang.github.io/files/TinyGAN_flow.png)
