@@ -13,6 +13,6 @@ codeurl: 'https://github.com/MiuLab/xSense'
 
 ***Ting-Yun Chang**, *Ta-Chung Chi, *Shang-Chi Tsai, and Yun-Nung Chen
 
-[Paper](https://arxiv.org/pdf/1809.03348.pdf)&nbsp;&nbsp;[Code](https://github.com/MiuLab/xSense)&nbsp;&nbsp;[Dataset](https://miulab.myDS.me:5001/sharing/lWPBRc8hG)
+[Paper](https://arxiv.org/pdf/1809.03348.pdf)&nbsp;&nbsp;[Code](https://github.com/MiuLab/xSense)
 
 ![Fig](https://terarachang.github.io/files/xSense.png)
