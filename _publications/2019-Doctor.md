@@ -6,7 +6,7 @@ excerpt: '
 Shang-Chi Tsai, **Ting-Yun Chang**, and Yun-Nung Chen
 '
 date: 2019-11-03
-venue: 'The 10th International Workshop on Health Text Mining and Information Analysis at EMNLP (LOUHI) in The 2019 Conference on Empirical Methods in Natural Language Processing and 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP)'
+venue: 'Proceedings of the Tenth International Workshop on Health Text Mining and Information Analysis (LOUHI, EMNLP-IJCNLP workshop)'
 
 ---
 
