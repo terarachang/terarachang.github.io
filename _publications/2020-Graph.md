@@ -12,7 +12,7 @@ venue: 'The First Workshop on Knowledge Extraction and Integration for Deep Lear
 
 **Ting-Yun Chang**, Yang Liu, Karthik Gopalakrishnan, Behnam Hedayatnia, Pei Zhou and Dilek Hakkani-Tur 
 
-[Paper](https://www.amazon.science/publications/incorporating-commonsense-knowledge-graph-in-pretrained-models-for-social-commonsense-tasks)&nbsp;&nbsp;[Slides](https://terarachang.github.io/files/DeepLIO.pdf)
+[Paper](https://www.amazon.science/publications/incorporating-commonsense-knowledge-graph-in-pretrained-models-for-social-commonsense-tasks)&nbsp;&nbsp;[Slides](https://drive.google.com/file/d/1v7j6Q0WlO0CdrVXHNvCeGt0-OKD0lHVB/view?usp=sharing)
 
 ---
 ![Fig](https://terarachang.github.io/files/DeepLIO.png)
