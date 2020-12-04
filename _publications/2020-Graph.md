@@ -10,7 +10,9 @@ venue: 'Proceedings of Deep Learning Inside Out (DeeLIO): The First Workshop on 
 
 ---
 
-**Ting-Yun Chang**, Yang Liu, Karthik Gopalakrishnan, Behnam Hedayatnia, Pei Zhou and Dilek Hakkani-Tur 
+**Ting-Yun Chang**, Yang Liu, Karthik Gopalakrishnan, Behnam Hedayatnia, Pei Zhou and Dilek Hakkani-Tur
+
+*Best paper award*
 
 [Paper](https://www.aclweb.org/anthology/2020.deelio-1.9/)&nbsp;&nbsp;[Slides](https://drive.google.com/file/d/1v7j6Q0WlO0CdrVXHNvCeGt0-OKD0lHVB/view?usp=sharing)
 
