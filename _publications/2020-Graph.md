@@ -6,7 +6,7 @@ excerpt: '
 **Ting-Yun Chang**, Yang Liu, Karthik Gopalakrishnan, Behnam Hedayatnia, Pei Zhou and Dilek Hakkani-Tur 
 '
 date: 2020-11-19
-venue: 'The First Workshop on Knowledge Extraction and Integration for Deep Learning Architectures (DeeLIO, EMNLP workshop)'
+venue: 'Proceedings of Deep Learning Inside Out (DeeLIO): The First Workshop on Knowledge Extraction and Integration for Deep Learning Architectures (EMNLP 2020 workshop)'
 
 ---
 
