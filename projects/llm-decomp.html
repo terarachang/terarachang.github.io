@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="When Parts Are Greater Than Sums: Individual LLM Components Can Outperform Full Models">
+  <meta name="keywords" content="Few-shot learning">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>When Parts Are Greater Than Sums: Individual LLM Components Can Outperform Full Models</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript"
+  src="http://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="Figs/icon.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">When Parts Are Greater Than Sums: Individual LLM Components Can Outperform Full Models</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://terarachang.github.io/">Ting-Yun Chang,</a></span>
+            <span class="author-block">
+            <span class="author-block">
+              <a href="https://jessethomason.com/">Jesse Thomason,</a></span>
+            <span class="author-block">
+            <span class="author-block">
+              <a href="https://robinjia.github.io/">Robin Jia</a></span>
+            <span class="author-block">
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">University of Southern California</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2406.13131"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video (Coming Soon)</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (Coming Soon)</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- TLDR -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">TL;DR</h2>
+        <div class="content has-text-justified">
+            <li> <b>A new view of ICL</b> by decomposing the output of an LLM into the sum of model components. </li>
+            <li> <b>An efficient few-shot learning method</b>. Don't select prompt. Select components! </li>
+            <li> While the full-model accuracy varies greatly across prompts, we reveal consistency <b>inside</b> LLMs.</li>
+        </div>
+      </div>
+    </div>
+    <br>
+    <!--/ TLDR -->
+
+    <!-- LLM Decomposition -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">LLM Decomposition</h2>
+        <div class="content has-text-justified">
+          <p>
+            Think about the residual stream as the highway that directly carries the contributions of <span style="color: rgb(153, 27, 30);">every attention head and MLP ("<b>component</b>")</span> to the output logits. We can use these <b>direct contributions</b> to calculate the individual ICL accuracy of each component.
+          </p>
+          <p>
+            Under such view, we can (1) characterizing components and (2) scaling their contributions to the model output to improve few-shot accuracy.
+          </p>
+          <p>
+            We derive a formula: <span style="color: rgb(153, 27, 30);">output logits = $\sum_j g_j$</span>, where $g_j$ is the direct contribution of the component indexed by $j$. Specifically, <span style="color: rgb(153, 27, 30);">$g_j = U \cdot C_j$</span>, where $U$ is the output embedding matrix and $C_j$ is the post-layernorm activations of component $j$. The operation $C_j \mapsto U \cdot C_j$ is called early decode.
+          </p>
+          <p>
+            *Please see §2.2 for the mathematical walkthrough, including the decomposition of the layernorm.
+          </p>
+          <p>
+            With our decomposition, we can obtain the <span style="color: rgb(153, 27, 30);">predictions of component $j$</span>  with <span style="color: rgb(153, 27, 30);">${\arg\max}_{y\in Y}\; g_j$</span>, and then calculate its individual ICL accuracy.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ LLM Decomposition -->
+
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div style="text-align: center;"><br>
+        <img src="Figs/main.png" alt="rd_teaser" width="90%" class="center">
+      </div>
+    </div>
+    <div>
+    <br><b>Left</b>: Transformer decomposition. <b>Right</b>: We can calculate the individual accuracy of every component after decomposition. <font color="#991b1e">Although a pair of templates that only differ slightly yield contrasting accuracies (0.39 vs. 0.89 on AGNews with Llama-2-7B), the accuracies of their internal components are highly correlated.</font>
+    </div>
+    <br><br>
+    <!--/ Paper video. -->
+
+    <!-- Curious Components -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Characterizing Components</h2>
+        <div class="content has-text-justified">
+          <p>
+            We observe three types of curious components across 8 classification tasks: 
+            <li><b>good-performing components</b> exist, even when the full model performs poorly</li>
+            <li><b>bad-performing components</b> do much worse than chance</li>
+            <li><b>label-biased components</b> always predict the same label</li>
+          </p>
+        </div>
+        <div style="text-align: center;"><br>
+            <img src="Figs/Table1.png" alt="rd_teaser" width="100%" class="center">
+        </div>
+      </div>
+    </div>
+    <br>
+    <!--/ Curious Components -->
+
+    <!-- Consistency -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Transferability of Components</h2>
+        <div class="content has-text-justified">
+          <p>
+            We find <font color="#991b1e">moderate to high</font> component transferability across <b>demonstrations</b>, <b>minimally contrastive templates</b>, and <b>data distributions</b>, whereas there is <font color="#991b1e">much less</font> transferability across <b>randomly sampled templates</b>. Our decomposition also uncovers the hidden abilities of individual components when the full model performs poorly.
+          </p>
+        </div>
+        <div style="text-align: center;"><br>
+            <img src="Figs/Tabe2_3.png" alt="rd_teaser" width="100%" class="center">
+        </div>
+      </div>
+    </div>
+    <br>
+    <!--/ Consistency -->
+
+    <!-- Method -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Method: Component Reweighting</h2>
+        <div class="content has-text-justified">
+          <p>
+            Our findings above show the promising direction of selecting internal components to improve ICL. Therefore, we propose a method that <span style="color: rgb(153, 27, 30);">reweighs components by learning a weight $w_j \in \textbf{R}$ on every component activation $C_j$</span>. 
+          </p>
+          <p>
+          Given $K$ (=12 or 24) labeled examples, instead of using all of them as ICL demonstrations, we divide them into a demonstration set $D_{demo}$ and a training set $D_{train}$. We randomly sample $K^\prime=\{3,4\}$ examples with balanced labels as demonstrations and use the remaining examples as $D_{train}$.
+        </p>
+        <p>
+            We train the component weights $\{w_j\}_{j=1}^N$ with the normal cross-entropy loss for classification tasks and add an $L_1$ loss to encourage sparsity in weights.
+        </p>
+        <p>
+            <b>Efficiency.</b> Training: after extracting the component activations, we can discard the entire LLM and train a linear layer on the cached activations, which takes less than a minute on one <b>CPU</b>.<br>Inference: our method has little overhead over the standard 4-shot ICL; much faster than the standard K={12, 24}-shot ICL.
+        </p>
+        <p>
+           <b>Results.</b> Our <span style="color: rgb(153, 27, 30);">CompRW</span> method achieves the <span style="color: rgb(153, 27, 30);">best average accuracy</span> across 8 tasks:
+        </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Method -->
+
+    <!-- Results -->
+    <div class="columns is-centered has-text-centered">
+      <div style="text-align: center;"><br>
+        <img src="Figs/Results.png" alt="rd_teaser" width="100%" class="center">
+      </div>
+    </div>
+    <br><br>
+    <!--/ Results -->
+
+    <!-- Emerge -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">When Do Good Components Emerge?</h2>
+        <div class="content has-text-justified">
+          <p> Do good-performing components exist in randomly initialized LLMs? <b>No!</b></p>
+          <p> When do they emerge? Good-performing components emerge at an early stage of pretraining (blue line), while the full-model accuracy fluctuates a lot over time (green line). </p>
+          <p> $\rightarrow$ The model’s ability to do a task emerges before it is apparent from the full model.</p>
+        </div>
+        <div style="text-align: center;"><br>
+            <img src="Figs/emerge.png" alt="rd_teaser" width="100%" class="center">
+        </div>
+      </div>
+    </div>
+    <!--/ Emerge -->
+
+  </div>
+</section>
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{chang2024parts,
+  author    = {Chang, Ting-Yun and Thomason, Jesse and Jia, Robin},
+  title     = {When Parts Are Greater Than Sums: Individual LLM Components Can Outperform Full Models},
+  journal   = {EMNLP},
+  year      = {2024},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            Website template from <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
