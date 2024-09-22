@@ -107,12 +107,12 @@
               </span>
               <!-- Code Link. -->
               <span class="link-block">
-                <a href=""
+                <a href="https://github.com/terarachang/LLMDecomp"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
-                  <span>Code (Coming Soon)</span>
+                  <span>Code</span>
                   </a>
               </span>
             </div>
@@ -147,13 +147,13 @@
         <h2 class="title is-3">LLM Decomposition</h2>
         <div class="content has-text-justified">
           <p>
-            Think about the residual stream as the highway that directly carries the contributions of <span style="color: rgb(153, 27, 30);">every attention head and MLP ("<b>component</b>")</span> to the output logits. We can use these <b>direct contributions</b> to calculate the individual ICL accuracy of each component.
+            Think about the residual stream as the highway that directly carries the contributions of <span style="color: rgb(153, 27, 30);">every attention head and MLP ("<b>component</b>")</span> to the output logits. We can use these <span style="color: rgb(153, 27, 30);"><b>direct contributions</b></span> to calculate the individual ICL accuracy of each component.
           </p>
           <p>
             Under such view, we can (1) characterizing components and (2) scaling their contributions to the model output to improve few-shot accuracy.
           </p>
           <p>
-            We derive a formula: <span style="color: rgb(153, 27, 30);">output logits = $\sum_j g_j$</span>, where $g_j$ is the direct contribution of the component indexed by $j$. Specifically, <span style="color: rgb(153, 27, 30);">$g_j = U \cdot C_j$</span>, where $U$ is the output embedding matrix and $C_j$ is the post-layernorm activations of component $j$. The operation $C_j \mapsto U \cdot C_j$ is called early decode.
+            We derive a formula: <span style="color: rgb(153, 27, 30);">output logits = $\sum_j g_j$</span>, where $g_j$ is the direct contribution of the component indexed by $j$. Specifically, <span style="color: rgb(153, 27, 30);">$g_j = U \cdot C_j$</span>, where $U$ is the output embedding matrix and $C_j$ is the post-layernorm activations of component $j$. The operation $C_j \mapsto U \cdot C_j$ is called early decoding.
           </p>
           <p>
             *Please see §2.2 for the mathematical walkthrough, including the decomposition of the layernorm.
@@ -221,16 +221,16 @@
         <h2 class="title is-3">Method: Component Reweighting</h2>
         <div class="content has-text-justified">
           <p>
-            Our findings above show the promising direction of selecting internal components to improve ICL. Therefore, we propose a method that <span style="color: rgb(153, 27, 30);">reweighs components by learning a weight $w_j \in \textbf{R}$ on every component activation $C_j$</span>. 
+            Our findings above show the promising direction of selecting internal components to improve ICL. Therefore, we propose a method that <span style="color: rgb(153, 27, 30);">reweighs components by learning a weight $w_j \in \textbf{R}$ on every component, logits = $\sum_j w_j \; g_j$</span>, where $w_j$ is initialized as $1$ for all components to match the original pretrained model. 
           </p>
           <p>
-          Given $K$ (=12 or 24) labeled examples, instead of using all of them as ICL demonstrations, we divide them into a demonstration set $D_{demo}$ and a training set $D_{train}$. We randomly sample $K^\prime=\{3,4\}$ examples with balanced labels as demonstrations and use the remaining examples as $D_{train}$.
+          Given $K$ (=$12$ or $24$) labeled examples, instead of using all of them as ICL demonstrations, we divide them into a demonstration set $D_{demo}$ and a training set $D_{train}$. We randomly sample $K^\prime=\{3,4\}$ examples with balanced labels as demonstrations and use the remaining examples as $D_{train}$.
         </p>
         <p>
             We train the component weights $\{w_j\}_{j=1}^N$ with the normal cross-entropy loss for classification tasks and add an $L_1$ loss to encourage sparsity in weights.
         </p>
         <p>
-            <b>Efficiency.</b> Training: after extracting the component activations, we can discard the entire LLM and train a linear layer on the cached activations, which takes less than a minute on one <b>CPU</b>.<br>Inference: our method has little overhead over the standard 4-shot ICL; much faster than the standard K={12, 24}-shot ICL.
+            <b>Efficiency.</b> Training: after extracting the component activations, we can discard the entire LLM and train a linear layer on the cached activations, which takes less than a minute on one <b>CPU</b>.<br>Inference: our method has little overhead over the standard $4$-shot ICL; much faster than the standard $K=\{12, 24\}$-shot ICL.
         </p>
         <p>
            <b>Results.</b> Our <span style="color: rgb(153, 27, 30);">CompRW</span> method achieves the <span style="color: rgb(153, 27, 30);">best average accuracy</span> across 8 tasks:
@@ -276,7 +276,7 @@
     <pre><code>@article{chang2024parts,
   author    = {Chang, Ting-Yun and Thomason, Jesse and Jia, Robin},
   title     = {When Parts Are Greater Than Sums: Individual LLM Components Can Outperform Full Models},
-  journal   = {EMNLP},
+  journal   = {arXiv preprint arXiv:2406.13131},
   year      = {2024},
 }</code></pre>
   </div>
