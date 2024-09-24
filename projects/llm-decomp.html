@@ -159,7 +159,10 @@
             *Please see <a href='https://arxiv.org/pdf/2406.13131#page=3' target="_blank" style="color: rgb(153, 27, 30);">§2.2</a> for the mathematical walkthrough, including the decomposition of the layernorm.
           </p>
           <p>
-            With the decomposition, we can obtain the <span style="color: rgb(153, 27, 30);">predictions of component $j$</span>  with <span style="color: rgb(153, 27, 30);">${\arg\max}_{y\in Y}\; g_j$</span>, and then calculate its individual ICL accuracy.
+            With the decomposition formula, we can obtain the <span style="color: rgb(153, 27, 30);">predictions of component $j$</span>  with <span style="color: rgb(153, 27, 30);">${\arg\max}_{y\in Y}\; g_j$</span>, where $Y$ is the set of possible label words of a task, and then <span style="color: rgb(153, 27, 30);">calculate its ICL accuracy</b>.
+          </p>
+          <p>
+          *While the formula is applicable to every token, we only apply it at the last token of the input, i.e., when the model starts to generate, because we focus on classification tasks with single-token label words. We invite future work to explore generation tasks that require decomposing multiple tokens.
           </p>
         </div>
       </div>
@@ -173,7 +176,8 @@
       </div>
     </div>
     <div>
-    <br><b>Left</b>: Transformer decomposition. <b>Right</b>: We can calculate the individual accuracy of every component after decomposition. <font color="#991b1e">Although a pair of templates that only differ slightly yield contrasting accuracies (0.39 vs. 0.89 on AGNews with Llama-2-7B), the accuracies of their internal components are highly correlated.</font>
+    <br><b>Left</b>: Transformer decomposition. <b>Right</b>: We can calculate the individual accuracy of every component after decomposition. Observations: (1) <font color="#991b1e">Although a pair of templates that only differ slightly yield contrasting accuracies (0.39 vs. 0.89 on AGNews with Llama-2-7B), the accuracies of their internal components are highly correlated.</font> (2) <font color="#991b1e">Some internal components perform much better ($+30\%$) than the full model under Template 1!</font>
+
     </div>
     <br><br>
     <!--/ Paper video. -->
@@ -185,9 +189,9 @@
         <div class="content has-text-justified">
           <p>
             We observe three types of curious components across 8 classification tasks: 
-            <li><b>good-performing components</b> exist, even when the full model performs poorly</li>
-            <li><b>bad-performing components</b> do much worse than chance</li>
-            <li><b>label-biased components</b> always predict the same label</li>
+            <li><span style="color: rgb(153, 27, 30);"><b>good-performing components</b></span> exist, even when the full model performs poorly</li>
+            <li><span style="color: rgb(153, 27, 30);"><b>bad-performing components</b></span> do much worse than chance</li>
+            <li><span style="color: rgb(153, 27, 30);"><b>label-biased components</b></span> always predict the same label</li>
           </p>
         </div>
         <div style="text-align: center;"><br>
@@ -205,6 +209,17 @@
         <div class="content has-text-justified">
           <p>
             We find <font color="#991b1e">moderate to high</font> component transferability across <b>demonstrations</b>, <b>minimally contrastive templates</b>, and <b>data distributions</b>, whereas there is <font color="#991b1e">much less</font> transferability across <b>randomly sampled templates</b>. Our decomposition also uncovers the hidden abilities of individual components when the full model performs poorly.
+          </p>
+          <p>
+            <b>Table 2.</b> Given a pair of prompts (with different demonstrations or templates), we can get two lists of component accuracies and measure their agreement. We use the metrics below:
+            <li><font color="#991b1e">Corr</font>: Pearson correlation of the accuracies of all components.</li>
+            <li><font color="#991b1e">IoU (a.k.a. Jaccard Index)</font>: The intersection over union on the sets of top-5 components, which measures whether the top-performing components of the pair overlap.</li>
+          <p>
+          <p>
+            <b>Table 3.</b> We also evaluate whether the top-1 component selected on the source data is transferable to out-of-distribution (OOD) test data. We consider the following datasets:
+            <li>src: SST-2 $\rightarrow$ tgt: Yelp-polarity</li>
+            <li>src: MNLI $\rightarrow$ MedNLI</li>
+            <li>src: BoolQ $\rightarrow$ tgt: BoolQ Contrast Set</li>
           </p>
         </div>
         <div style="text-align: center;"><br>
@@ -230,7 +245,7 @@
             We train the component weights $\{w_j\}_{j=1}^N$ with the normal cross-entropy loss for classification tasks and add an $L_1$ loss to encourage sparsity in weights.
         </p>
         <p>
-            <b>Efficiency.</b> Training: after extracting the component activations, we can discard the entire LLM and train a linear layer on the cached activations, which takes less than a minute on one <b>CPU</b>.<br>Inference: our method has little overhead over the standard $4$-shot ICL; much faster than the standard $K=\{12, 24\}$-shot ICL.
+            <b>Efficiency.</b> Training: after extracting the component activations, we can discard the entire LLM and train a linear layer on the cached activations, which takes less than a minute on one <span style="color: rgb(153, 27, 30);">CPU</span>.<br>Inference: our method has little overhead over the standard $4$-shot ICL; much faster than the standard $K=\{12, 24\}$-shot ICL.
         </p>
         <p>
            <b>Results.</b> Our <span style="color: rgb(153, 27, 30);">CompRW</span> method achieves the <span style="color: rgb(153, 27, 30);">best average accuracy</span> across 8 tasks:
@@ -254,7 +269,7 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">When Do Good Components Emerge?</h2>
         <div class="content has-text-justified">
-          <p> Do good-performing components exist in randomly initialized LLMs? <b>No!</b></p>
+          <p> Do good-performing components exist in randomly initialized LLMs? <span style="color: rgb(153, 27, 30);">No!</span></p>
           <p> When do they emerge? Good-performing components emerge at an early stage of pretraining (blue line), while the full-model accuracy fluctuates a lot over time (green line). </p>
           <p> $\rightarrow$ The model’s ability to do a task emerges before it is apparent from the full model.</p>
         </div>
