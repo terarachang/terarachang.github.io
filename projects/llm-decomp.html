@@ -131,10 +131,15 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">TL;DR</h2>
+        <div class="columns is-centered has-text-centered">
+          <div style="text-align: center;"><br>
+            <img src="Figs/emnlp24/teaser.png" alt="rd_teaser" width="85%" class="center">
+          </div>
+        </div>
         <div class="content has-text-justified">
             <li> <b>A new view of ICL</b> by decomposing the output of an LLM into the sum of model components. </li>
-            <li> <b>An efficient few-shot learning method</b>. Don't select prompts. Select components! </li>
             <li> While the full-model accuracy varies greatly across prompts, we reveal consistency <b>inside</b> LLMs.</li>
+            <li> <b>An efficient few-shot learning method</b>. Don't select prompts. Select components! </li>
         </div>
       </div>
     </div>
@@ -162,7 +167,10 @@
             With the decomposition formula, we can obtain the <span style="color: rgb(153, 27, 30);">predictions of component $j$</span>  with <span style="color: rgb(153, 27, 30);">${\arg\max}_{y\in Y}\; g_j$</span>, where $Y$ is the set of possible label words of a task, and then <span style="color: rgb(153, 27, 30);">calculate its ICL accuracy</b>.
           </p>
           <p>
-          *While the formula is applicable to every token, we only apply it at the last token of the input, i.e., when the model starts to generate, because we focus on classification tasks with single-token label words. We invite future work to explore generation tasks that require decomposing multiple tokens.
+          *While the formula is applicable to every token, we only apply it at the <span style="color: rgb(153, 27, 30);">last token</span> of the input, i.e., when the model starts to generate, because we focus on classification tasks with single-token label words. We invite future work to explore generation tasks that require decomposing multiple tokens.
+          </p>
+          <p>
+            LLMs studied in this paper: Llama-2-7B, Llama-2-13B, Mistral-7B-Instruct-v0.1, Llama-3-8B. 
           </p>
         </div>
       </div>
@@ -172,11 +180,11 @@
     <!-- Paper video. -->
     <div class="columns is-centered has-text-centered">
       <div style="text-align: center;"><br>
-        <img src="Figs/emnlp24/main.png" alt="rd_teaser" width="100%" class="center">
+        <img src="Figs/emnlp24/main.png" alt="rd_teaser" width="95%" class="center">
       </div>
     </div>
     <div>
-    <br><b>Left</b>: Transformer decomposition. <b>Right</b>: We can calculate the individual accuracy of every component after decomposition. Observations: (1) <font color="#991b1e">Although a pair of templates that only differ slightly yield contrasting accuracies (0.39 vs. 0.89 on AGNews with Llama-2-7B), the accuracies of their internal components are highly correlated.</font> (2) <font color="#991b1e">Some internal components perform much better ($+30\%$) than the full model under Template 1!</font>
+    <br><b>Left</b>: Transformer decomposition. <b>Right</b>: We can calculate the individual accuracy of every component after decomposition. Observations: (1) Although a pair of templates that only differ slightly yield contrasting accuracies (0.39 vs. 0.89 on AGNews with Llama-2-7B), <font color="#991b1e">the accuracies of their internal components are highly correlated.</font> (2) <font color="#991b1e">Some internal components perform much better ($+30\%$) than the full model under Template 1!</font>
 
     </div>
     <br><br>
@@ -208,8 +216,11 @@
         <h2 class="title is-3">Transferability of Components</h2>
         <div class="content has-text-justified">
           <p>
-            We find <font color="#991b1e">moderate to high</font> component transferability across <b>demonstrations</b>, <b>minimally contrastive templates</b>, and <b>data distributions</b>, whereas there is <font color="#991b1e">much less</font> transferability across <b>randomly sampled templates</b>. Our decomposition also uncovers the hidden abilities of individual components when the full model performs poorly.
+            We find <font color="#991b1e">moderate to high</font> component transferability across <b>demonstrations</b>, <b>minimally contrastive templates</b>, and <b>data distributions</b>, whereas there is <font color="#991b1e">much weaker</font> transferability across <b>randomly sampled templates</b>. Our decomposition also uncovers the hidden abilities of individual components when the full model performs poorly.
           </p>
+        <div style="text-align: center;">
+            <img src="Figs/emnlp24/contrast_templates.png" alt="rd_teaser" width="100%" class="center">
+        </div><br>
           <p>
             <b>Table 2.</b> Given a pair of prompts (with different demonstrations or templates), we can get two lists of component accuracies and measure their agreement. We use the metrics below:
             <li><font color="#991b1e">Corr</font>: Pearson correlation of the accuracies of all components.</li>
@@ -222,7 +233,7 @@
             <li>src: BoolQ $\rightarrow$ tgt: BoolQ Contrast Set</li>
           </p>
         </div>
-        <div style="text-align: center;"><br>
+        <div style="text-align: center;">
             <img src="Figs/emnlp24/Tabe2_3.png" alt="rd_teaser" width="100%" class="center">
         </div>
       </div>
@@ -257,7 +268,7 @@
 
     <!-- Results -->
     <div class="columns is-centered has-text-centered">
-      <div style="text-align: center;"><br>
+      <div style="text-align: center;">
         <img src="Figs/emnlp24/Results.png" alt="rd_teaser" width="100%" class="center">
       </div>
     </div>
@@ -273,8 +284,8 @@
           <p> When do they emerge? Good-performing components emerge at an early stage of pretraining (blue line), while the full-model accuracy fluctuates a lot over time (green line). </p>
           <p> $\rightarrow$ The model’s ability to do a task emerges before it is apparent from the full model.</p>
         </div>
-        <div style="text-align: center;"><br>
-            <img src="Figs/emnlp24/emerge.png" alt="rd_teaser" width="100%" class="center">
+        <div style="text-align: center;">
+            <img src="Figs/emnlp24/emerge.png" alt="rd_teaser" width="90%" class="center">
         </div>
       </div>
     </div>
@@ -288,11 +299,12 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{chang2024parts,
-  author    = {Chang, Ting-Yun and Thomason, Jesse and Jia, Robin},
-  title     = {When Parts Are Greater Than Sums: Individual LLM Components Can Outperform Full Models},
-  journal   = {arXiv preprint arXiv:2406.13131},
-  year      = {2024},
+    <pre><code>@inproceedings{chang2024parts,
+  title={When Parts Are Greater Than Sums: Individual {LLM} Components Can Outperform Full Models},
+  author={Chang, Ting-Yun and Thomason, Jesse and Jia, Robin},
+  booktitle={The 2024 Conference on Empirical Methods in Natural Language Processing},
+  year={2024},
+  url={https://arxiv.org/pdf/2406.13131}
 }</code></pre>
   </div>
 </section>
