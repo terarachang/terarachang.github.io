@@ -152,7 +152,7 @@
         <h2 class="title is-3">LLM Decomposition</h2>
         <div class="content has-text-justified">
           <p>
-            Think about the residual stream as the highway that directly carries the contributions of <span style="color: rgb(153, 27, 30);">every attention head and MLP ("<b>component</b>")</span> to the output logits. We can use these <span style="color: rgb(153, 27, 30);"><b>direct contributions</b></span> to calculate the individual ICL accuracy of each component.
+            Think about the residual stream as the highway that directly carries the contributions of <span style="color: rgb(153, 27, 30);">every attention head and MLP ("<b>component</b>")</span> to the output logits <a href='https://transformer-circuits.pub/2021/framework/index.html#high-level-architecture' target="_blank" style="color: rgb(0, 0, 150);">(Elhage et al., 2021)</a>. We can use these <span style="color: rgb(153, 27, 30);"><b>direct contributions</b></span> to calculate the individual ICL accuracy of each component.
           </p>
           <p>
            Under this view, we can (1) characterize components and (2) scale their contributions to the model output to improve few-shot accuracy.
@@ -161,7 +161,7 @@
             We derive a formula: <span style="color: rgb(153, 27, 30);">output logits = $\sum_j g_j$</span>, where $g_j$ is the direct contribution of the component indexed by $j$. Specifically, <span style="color: rgb(153, 27, 30);">$g_j = U \cdot C_j$</span>, where $U$ is the output embedding matrix and $C_j$ is the post-layernorm activations of component $j$. The operation $C_j \mapsto U \cdot C_j$ is called early decoding.
           </p>
           <p>
-            *Please see <a href='https://arxiv.org/pdf/2406.13131#page=3' target="_blank" style="color: rgb(153, 27, 30);">§2.2</a> for the mathematical walkthrough, including the decomposition of the layernorm.
+            *Please see <a href='https://arxiv.org/pdf/2406.13131#page=3' target="_blank" style="color: rgb(0, 0, 150);">§2.2</a> for the mathematical walkthrough, including the decomposition of the layernorm.
           </p>
           <p>
             With the decomposition formula, we can obtain the <span style="color: rgb(153, 27, 30);">predictions of component $j$</span>  with <span style="color: rgb(153, 27, 30);">${\arg\max}_{y\in Y}\; g_j$</span>, where $Y$ is the set of possible label words of a task, and then <span style="color: rgb(153, 27, 30);">calculate its ICL accuracy</b>.
