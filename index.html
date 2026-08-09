@@ -29,6 +29,11 @@
         .indent{
             padding-left: 50px;
         }
+        .bio {
+            text-align: justify;
+            hyphens: auto;
+            -webkit-hyphens: auto;
+        }
         body {
             font-family: 'san-serif';
             font-size: 18px;
@@ -57,12 +62,14 @@
         <div style="padding-left: 3%; width: 45%; display: inline-block;">
             <span style="font-size: 36px; text-align: center; font-family: 'Sofia'">Ting-Yun (Charlotte) Chang</span>
             <br>
-            <span>Hi, I'm Ting-Yun Chang <span style="font-family:'Noto Serif TC'; display:inline-block">張婷雲</span>.
+            <span class="bio">Hi, I'm Ting-Yun Chang <span style="font-family:'Noto Serif TC'; display:inline-block">張婷雲</span>.
                  I am a recent PhD graduate of <a href="https://www.cs.usc.edu/" target="_blank">USC CS</a>,
                  co-advised by <a href="https://robinjia.github.io/" target="_blank">Robin Jia</a> and <a href="https://jessethomason.com/" target="_blank">Jesse Thomason</a>.
-                 I am interested in improving large language models post-training based on scientific insights, e.g., making LLMs less sensitive to prompt designs through targeted weight updates informed by the activation patterns. I currently focus on inference efficiency, finding where the model can be made more frugal to reduce costs. I have been working on model quantization and KV cache compression, with an emphasis on identifying the root causes of performance degradation arising from these approximations.
+                 I am interested in improving large language models post-training using scientific insights, e.g., making LLMs less sensitive to prompt designs through targeted weight updates informed by their activation patterns.</span>
             <br>
-            <span>Previously, I did my bachelor's and master's degrees in Taiwan, both in Computer Science.
+            <span class="bio">I currently focus on inference efficiency, finding where models can be made more frugal to reduce serving costs. I have been working on model quantization and KV cache compression, with an emphasis on identifying the root causes of performance degradation arising from these approximations.</span>
+            <br>
+            <span class="bio">Previously, I did my bachelor's and master's degrees in Taiwan, both in Computer Science.
                  I was advised by <a href="https://www.csie.ntu.edu.tw/~yvchen/" target="_blank">Yun-Nung (Vivian) Chen</a> at National Taiwan University
                  and <a href="https://www.iis.sinica.edu.tw/pages/cjlu/" target="_blank">Chi-Jen Lu</a> at Academia Sinica.</span>
             <br>
@@ -85,7 +92,7 @@
             <div style="padding-left: 5%; width: 70%; display: inline-block;">
                 <span>
                     <b style="font-size: 18px;">Research Assistant</b>
-                    <span style="float: right">Fall 2021 - Spring 2026</span>
+                    <span style="float: right">2021 - 2026</span>
                 </span>
                 <span><a href="https://www.cs.usc.edu/" target="_blank">University of Southern California</a></span>
                 <span>Advisors: <a href="https://robinjia.github.io/" target="_blank">Robin Jia</a> and <a href="https://jessethomason.com/" target="_blank">Jesse Thomason</a> </span>
@@ -163,7 +170,7 @@
         <div>
             <div style="padding-left: 5%; width: 100%; display: inline-block;">
                 <span style="font-size: 18px;"><b>Value-Aware Stochastic KV Cache Eviction for Reasoning Models</b></span>
-                <span><font color="#a0522d">*Ting-Yun Chang</font>, *Harvey Yiyun Fu, *Deqing Fu, Chenghao Yang, Jesse Thomason, Robin Jia</span>
+                <span><font color="#a0522d">Ting-Yun Chang</font>, Harvey Yiyun Fu, Deqing Fu, Chenghao Yang, Jesse Thomason, and Robin Jia</span>
                 <span><b><i>arXiv preprint 2026</i></b></span>
                 <span><a href="https://arxiv.org/abs/2606.03928v1" target="_blank">[Paper]</a> <a href="https://github.com/terarachang/VaSE" target="_blank">[Code]</a></span>
             </div>
@@ -171,8 +178,8 @@
         <br>
         <div>
             <div style="padding-left: 5%; width: 100%; display: inline-block;">
-                <span style="font-size: 18px;"><b>Vibe Checker: Aligning Code Evaluation with Human Preference</b></span>
-                <span>Ming Zhong, Xiang Zhou, <font color="#a0522d">Ting-Yun Chang</font>, Qingze Wang, Nan Xu, Xiance Si, Dan Garrette, Shyam Upadhyay,<br> Jeremiah Liu, Jiawei Han, Benoit Schillings, and Jiao Sun</span>
+                <span style="font-size: 18px;"><b>SWE-IF: Aligning Code Evaluation with Human Preference</b></span>
+                <span>Ming Zhong, Xiang Zhou, <font color="#a0522d">Ting-Yun Chang</font>, Qingze Wang, Nan Xu, Xiance Si, Dan Garrette,<br> Shyam Upadhyay, Jeremiah Liu, Jiawei Han, Benoit Schillings, and Jiao Sun</span>
                 <span><b><i>ICML 2026</i></b></span>
                 <span><a href="https://arxiv.org/abs/2510.07315" target="_blank">[Paper]</a></span>
             </div>
@@ -208,7 +215,7 @@
         <div>
             <div style="padding-left: 5%; width: 100%; display: inline-block;">
                 <span style="font-size: 18px;"><b>Data Curation Alone Can Stabilize In-context Learning</b></span>
-                <span><font color="#a0522d">Ting-Yun Chang</font>, Robin Jia</span>
+                <span><font color="#a0522d">Ting-Yun Chang</font> and Robin Jia</span>
                 <span><b><i>ACL 2023 (main)</i></b></span>
                 <span><a href="https://aclanthology.org/2023.acl-long.452.pdf" target="_blank">[Paper]</a> <a href="https://github.com/terarachang/DataICL" target="_blank">[Code]</a> <a href="https://docs.google.com/presentation/d/1nqv6g2o5DYzpxxaPBB2NsvMZvk3DwzwfFaR5tA4gPng/edit#slide=id.p" target="_blank">[Slides]</a> <a href="https://docs.google.com/presentation/d/1uBpCD9tTrm31OEpGHoFVz7E_OjZNbZNaF5i6QL8V6ko/edit#slide=id.g324e72b9b7b_46_210" target="_blank">[Slides2]</a> <a href="https://www.youtube.com/watch?v=ZVz5pI06FRE" target="_blank">[Video]</a></span>
             </div>
@@ -226,7 +233,7 @@
         <div>
             <div style="padding-left: 5%; width: 100%; display: inline-block;">
                 <span style="font-size: 18px;"><b>Rethinking Why Intermediate-Task Fine-Tuning Works</b></span>
-                <span><font color="#a0522d">Ting-Yun Chang</font>, Chi-Jen Lu</span>
+                <span><font color="#a0522d">Ting-Yun Chang</font> and Chi-Jen Lu</span>
                 <span><b><i>Findings of EMNLP 2021</i></b></span>
                 <span><a href="https://arxiv.org/pdf/2108.11696.pdf" target="_blank">[Paper]</a>  <a href="https://github.com/terarachang/Rethinking_STILT.git" target="_blank">[Code]</a>  <a href="https://docs.google.com/presentation/d/1ilf3jai7PjgpZ3JFRmCdw4ohriOrPyJ_UthHcdAp-gU/edit#slide=id.p" target="_blank">[Slides]</a>  <a href="https://www.youtube.com/watch?v=7DgWsbr6HQI" target="_blank">[Video]</a></span>
             </div>
@@ -246,14 +253,14 @@
                 <span style="font-size: 18px;"><b>Incorporating Commonsense Knowledge Graph in Pretrained Models for Social Commonsense Tasks</b></span>
                 <span><font color="#a0522d">Ting-Yun Chang</font>, Yang Liu, Karthik Gopalakrishnan, Behnam Hedayatnia, Pei Zhou, and Dilek Hakkani-Tür</span>
                 <span><b><i>DeeLIO Workshop@EMNLP 2020</i></b> <font color="#a0522d">(best paper award)</font></span>
-                <span><a href="https://www.aclweb.org/anthology/2020.deelio-1.9.pdf" target="_blank">[Paper]</a>  <a href="https://drive.google.com/file/d/1v7j6Q0WlO0CdrVXHNvCeGt0-OKD0lHVB/view?usp=sharing" target="_blank">[Slides]</a>
+                <span><a href="https://www.aclweb.org/anthology/2020.deelio-1.9.pdf" target="_blank">[Paper]</a>  <a href="https://drive.google.com/file/d/1v7j6Q0WlO0CdrVXHNvCeGt0-OKD0lHVB/view?usp=sharing" target="_blank">[Slides]</a></span>
             </div>
         </div>
         <br>
         <div>
             <div style="padding-left: 5%; width: 100%; display: inline-block;">
                 <span style="font-size: 18px;"><b>TinyGAN: Distilling BigGAN for Conditional Image Generation</b></span>
-                <span><font color="#a0522d">Ting-Yun Chang</font>, Chi-Jen Lu</span>
+                <span><font color="#a0522d">Ting-Yun Chang</font> and Chi-Jen Lu</span>
                 <span><b><i>Asian Conference on Computer Vision 2020</i></b></span>
                 <span><a href="https://arxiv.org/abs/2009.13829" target="_blank">[Paper]</a>  <a href="https://github.com/terarachang/ACCV_TinyGAN" target="_blank">[Code]</a>  <a href="https://github.com/terarachang/ACCV_TinyGAN/blob/master/demo.ipynb" target="_blank">[Demo]</a>  <a href="https://www.youtube.com/watch?v=EsUxQT1su6s&feature" target="_blank">[Video]</a></span>
             </div>
@@ -262,7 +269,7 @@
         <div>
             <div style="padding-left: 5%; width: 100%; display: inline-block;">
                 <span style="font-size: 18px;"><b>What Does This Word Mean? Explaining Contextualized Embeddings with Natural Language Definition</b></span>
-                <span><font color="#a0522d">Ting-Yun Chang</font>, Yun-Nung Chen</span>
+                <span><font color="#a0522d">Ting-Yun Chang</font> and Yun-Nung Chen</span>
                 <span><b><i>EMNLP 2019</i></b></span>
                 <span><a href="https://www.aclweb.org/anthology/D19-1627/" target="_blank">[Paper]</a>  <a href="https://www.airitilibrary.com/Publication/alDetailedMesh1?DocID=U0001-1902202000330000" target="_blank">[Thesis]</a>  <a href="https://github.com/MiuLab/GenDef" target="_blank">[Code]</a></span>
             </div>
@@ -292,9 +299,12 @@
         <li><a href="http://www.wlsh.tyc.edu.tw/p/16-1000-5151.php?Lang=zh-tw" target="_blank">Women's 4 × 100 metres relay record holder of National Wu-Ling Senior High School (Since 2012)</a></li>
         <li><a href="https://nthupeo.site.nthu.edu.tw/p/412-1265-14433.php" target="_blank">Varsity table tennis team of National Tsing Hua University (2014 – 2017)</a></li>
         <li><a href="https://en.wikipedia.org/wiki/Mei-Chu_Tournament" target="_blank">2015 Mei-Chu Tournament – relay race </a></li>
-        <li> I love Classical Chinese poetry. My favorite poem is <span style="font-family:'Noto Serif TC'; display:inline-block">蝶戀花·憶掛孤帆東海畔</span>
-        <li> My dream is to play table tennis in different cities with different people :)
-        <ul><li style="font-size: 14px;">Unlocked Regions: LA, Bay Area, NYC, Honolulu, Beijin, Hangzhou, Taipei, Hsinchu</ul>
+        <li>I love Classical Chinese poetry. My favorite poem is <span style="font-family:'Noto Serif TC'; display:inline-block">蝶戀花·憶掛孤帆東海畔</span></li>
+        <li>My dream is to play table tennis in different cities with different people :)
+            <ul>
+                <li style="font-size: 14px;">Unlocked Regions: LA, Bay Area, NYC, Seattle, Honolulu, Beijing, Hangzhou, Taipei, Hsinchu</li>
+            </ul>
+        </li>
         </ul>
         </div>
     </div>
